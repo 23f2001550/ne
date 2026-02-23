@@ -26,7 +26,9 @@ jobs:
 
     - name: Commit and push changes
       run: |
+        sleep 10
         git config --local user.email "23f2001550@ds.study.iitm.ac.in"
         git config --local user.name "github-actions[bot]"
         git add last_update.txt update_log.txt
-        git diff --staged --quiet || (git commit -m "chore: daily update $(date)" && git push origin HEAD:${{ github.ref }})
+        git commit -m "chore: daily update automated [$(date)]"
+        git push origin HEAD:${{ github.ref }}
